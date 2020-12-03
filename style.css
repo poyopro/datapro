@@ -1,0 +1,548 @@
+/*------------------------------
+全般設定
+------------------------------*/
+html {
+min-width: 1000px;
+color: #000;
+line-height: 1.6;
+font-family: 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'YuGothic', '游ゴシック', 'メイリオ', Meiryo, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+font-size: 10px;
+font-weight: 400;
+width: 100%;
+font-variant-numeric: tabular-nums;
+/* safari hover対策 */
+-webkit-font-smoothing: antialiased;
+}
+
+.common-inner {
+width: 1000px;
+margin: 0 auto;
+}
+
+
+/*------------------------------
+ヘッダー
+------------------------------*/
+.page-header__inner {
+min-height: 480px;
+height: 40vw;
+background: url(images/main_visual.jpg) center top no-repeat;
+background-size: cover;
+display: flex;
+align-items: center;
+padding: 0 100px;
+position: relative;
+}
+
+.page-header__title {
+font-size: 3.6rem;
+font-weight: bold;
+line-height: 1.5;
+color: #fff;
+}
+
+.page-header__title .black-belt {
+background-color: #094067;
+padding: 5px 8px;
+}
+
+.page-header__logo {
+position: absolute;
+top: 0;
+left: 0;
+z-index: 1;
+}
+
+.page-header__campaign {
+position: absolute;
+right: 20px;
+bottom: 20px;
+z-index: 1;
+}
+
+.page-header__campaign a {
+display: flex;
+justify-content: center;
+align-items: center;
+width: 180px;
+height: 180px;
+background-color: #fff;
+box-sizing: border-box;
+border: 5px solid #3da9fc;
+border-radius: 50%;
+font-size: 2.4rem;
+font-weight: bold;
+line-height: 1.5;
+text-align: center;
+color: #3da9fc;
+transition:  0.2s ease 0s;
+transition-property: color, background-color;
+}
+
+.page-header__campaign a:hover{
+background-color: #3da9fc;
+color: #fff;
+}
+
+/*------------------------------
+ナビゲーション
+------------------------------*/
+.header-navigation{
+background: #094067 0% 0% no-repeat padding-box;
+box-shadow: 0px 2px 4px #00000033;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding-left: 100px;
+}
+
+.header-navigation__list {
+display: flex;
+padding: 10px;
+}
+
+.header-navigation__list li:not(:last-child) {
+margin-right: 30px;
+}
+
+.header-navigation__list a {
+display: inline-block;
+font-size: 1.6rem;
+line-height: 1;
+color: #fff;
+transition: opacity 0.2s ease 0s;
+}
+
+.header-navigation__list li a:hover {
+opacity: 0.7;
+}
+
+.header-navigation__contact a {
+background: #ffd803 0% 0% no-repeat padding-box;
+display: inline-block;
+padding: 30px 50px;
+font-size: 1.6rem;
+line-height: 1;
+color: #fff;
+position: relative;
+}
+
+/* マウスオンしたときにボタン自体のopacityを下げてしまうと親要素の背景色と混ざってしまうので、背景色が白色で半透明なafter疑似要素を置く  */
+.header-navigation__contact a:after {
+content: '';
+display: block;
+width: 100%;
+height: 100%;
+background-color: #fff;
+opacity: 0;
+position: absolute;
+top: 0;
+left: 0;
+z-index: 1;
+transition: opacity 0.2s  ease 0s;
+}
+
+.header-navigation__contact a:hover:after {
+opacity: 0.3;
+}
+
+
+/*------------------------------
+タイトル設定
+------------------------------*/
+.section {
+padding: 100px 0;
+}
+
+.section__title {
+margin-bottom: 30px;
+font-size: 3.2rem;
+line-height: 1.0;
+text-align: center;
+}
+
+.section__title span {
+display: inline-block;
+padding: 10px 20px;
+position: relative;
+}
+
+.section__title span::before, .section__title span::after {
+content: '';
+display: block;
+width: 16px;
+height: 16px;
+position: absolute;
+z-index: 1;
+}
+
+.section__title span::before {
+top: 0;
+left: 0;
+background: linear-gradient(135deg, #094067 0%, #094067 50%, transparent 50%, transparent 100%);
+}
+
+.section__title span::after {
+bottom: 0;
+right: 0;
+background: linear-gradient(135deg, transparent 0%, transparent 50%, #094067 50%, #094067 100%);
+}
+
+
+/*------------------------------
+ボタン設定
+------------------------------*/
+.primary-button {
+display: flex;
+justify-content: center;
+align-items: center;
+min-width: 280px;
+padding: 0 20px;
+margin-top: 40px;
+box-sizing: border-box;
+height: 60px;
+font-size: 1.6rem;
+color: #094067;
+background-color: #fff;
+border: 1px solid #094067;
+border-radius: 4px;
+position: relative;
+transition: 0.2s ease 0s;
+transition-property: background-color, color;
+}
+
+.primary-button::before {
+content: '';
+display: block;
+width: 10px;
+height: 10px;
+position: absolute;
+z-index: 1;
+bottom: 0;
+right: 0;
+background: linear-gradient(135deg, transparent 0%, transparent 50%, #094067 50%, #094067 100%);
+transition: opacity 0.2s ease 0s;
+
+}
+
+.primary-button::after {
+content: '';
+display: block;
+width: 10px;
+height: 10px;
+position: absolute;
+z-index: 1;
+bottom: 0;
+right: 0;
+opacity: 0;
+background: linear-gradient(135deg, transparent 0%, transparent 50%, #fff 50%, #fff 100%);
+transition: opacity 0.2s ease 0s;
+}
+
+.primary-button:hover {
+background-color: #094067;
+color: #fff;
+
+}
+
+.primary-button:hover::before {
+opacity: 0;
+}
+
+.primary-button:hover::after {
+opacity: 1;
+}
+
+.primary-button--monochrome{
+color: #333;
+border-color: #333;
+}
+
+.primary-button--monochrome:hover {
+background-color: #333;
+}
+
+.primary-button--monochrome::before {
+background: linear-gradient(135deg, transparent 0%, transparent 50%, #333 50%, #333 100%);
+} 
+
+
+/*------------------------------
+最新情報
+------------------------------*/
+.news-list {
+width: 600px;
+}
+
+.news-list:not(:last-child) {
+margin: 0 auto 50px;
+}
+
+.news-list__item:not(:last-child){
+margin-bottom: 20px;
+}
+
+.news-list__item a {
+display: flex;
+justify-content: space-between;
+font-size: 1.6rem;
+line-height: 1.75;
+color: #000;
+}
+
+.news-list__item a span {
+width: 470px;
+}
+
+.news-page__link {
+text-align: center;
+}
+
+.news-page__link a {
+font-size: 1.6rem;
+color: #3da9fc;
+}
+
+.news-page__link a:hover{
+text-decoration: underline;
+}
+
+/*------------------------------
+サービスの特長
+------------------------------*/
+#feature {
+background-color: #E6F6FF;
+}
+
+.feature-block {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+background-color: #fff;
+padding: 60px;
+}
+
+.feature-text {
+width: 460px;
+margin-right: 60px;
+font-size: 1.6rem;
+line-height: 1.75;
+}
+
+.feature-icons {
+width: 360px;
+display: flex;
+flex-wrap: wrap;
+}
+
+.feature-icon__item {
+margin-right: 40px;
+}
+
+
+/*------------------------------
+DataProの3つの強み
+------------------------------*/
+.advantage-block {
+display: flex;
+align-items: center;
+}
+
+.advantage-block:not(:last-child) {
+margin-bottom: 50px;
+}
+
+.advantage-block__image {
+width: 300px;
+height: 300px;
+margin-right: 40px;
+border-radius: 50%;
+overflow: hidden;
+}
+
+.advantage-block__inner {
+flex: 1;
+}
+
+.advantage-block__title {
+margin-bottom: 20px;
+font-size: 2.4rem;
+line-height: 1.5;
+border-bottom: 2px solid #094067;
+}
+
+.advantage-block__text {
+font-size: 1.6rem;
+line-height: 2.0;
+}
+
+
+/*------------------------------
+お客様の声
+------------------------------*/
+#client-voice {
+background-color: #E6F6FF;
+}
+
+.voice-list {
+padding: 60px;
+background-color: #fff;
+}
+
+.voice-list::after {
+display: block;
+clear: both;
+content: '';
+}
+
+.voice-block{
+border: 1px solid #ddd;
+box-sizing: border-box;
+border-radius: 10px;
+overflow: hidden;
+width: 400px;
+margin-top: 80px;
+}
+
+.voice-block:nth-child(1),.voice-block:nth-child(4) {
+float: left;
+}
+
+.voice-block:nth-child(2),.voice-block:nth-child(3) {
+float: right;
+}
+
+.voice-block__image figcaption {
+min-height: calc((1em * 1.75 * 2) + 28px);
+padding: 14px 20px;
+box-sizing: border-box;
+background-color: #094067;
+font-size: 1.6rem;
+line-height: 1.75;
+color: #fff;
+}
+
+.voice-block__text {
+padding: 20px;
+font-size: 1.6rem;
+line-height: 1.75;
+}
+
+
+/*------------------------------
+お問い合わせ
+------------------------------*/
+
+.contact-form {
+width: 600px;
+margin: 0 auto;
+}
+
+
+.form-parts {
+display: block;
+margin-bottom: 30px;
+}
+
+.form-parts__label {
+display: block;
+margin-bottom: 10px;
+font-size: 1.6rem;
+line-height: 1;
+}
+
+input[type=text],input[type=email] {
+display: block;
+width: 100%;
+padding: 10px;
+box-sizing: border-box;
+border: 1px solid #000;
+border-radius: 4px;
+font-size: 1.6rem;
+}
+
+.select-wrapper {
+display: block;
+width: 200px;
+height: 40px;
+border: 1px solid #000;
+border-radius: 4px;
+box-sizing: border-box;
+position: relative;
+}
+
+
+.select-wrapper select {
+width: 100%;
+height: 100%;
+padding-left: 10px;
+box-sizing: border-box;
+font-size: 1.6rem;
+}
+
+
+textarea {
+width: 600px;
+height: 200px;
+padding: 10px;
+box-sizing: border-box;
+border: 1px solid #000;
+border-radius: 4px;
+font-size: 1.6em;
+line-height: 1.75;
+resize: none;
+}
+
+.contact-form__send-button {
+margin: 50px auto 0;
+}
+
+/*------------------------------
+フッター
+------------------------------*/
+.page-footer {
+padding: 50px 0;
+background: #094067 0% 0% no-repeat padding-box;
+}
+
+.page-footer__nav {
+display: flex;
+}
+
+.page-footer__nav .footer-nav-block:not(:last-child) {
+margin-right: 100px;
+}
+
+.footer-nav-block__category {
+margin-bottom: 40px;
+font-size: 1.4rem;
+font-weight: bold;
+line-height: 1.0;
+color: #fff;
+}
+
+.footer-nav-block__list {
+font-size: 1.4rem;
+line-height: 1.0;
+color: #fff;
+}
+
+.footer-nav-block__list li:not(:last-child) {
+margin-bottom: 20px;
+}
+
+
+/*------------------------------
+inview.js
+------------------------------*/
+.fadeIn_left {
+    opacity: 0;
+    transform: translate(0, 50%);
+    transition: 2s;
+  }
+.fadeIn_left.is-show {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+
